@@ -1,3 +1,5 @@
+let contabilizarAlugados = 0;
+
 function alterarStatus(id) {
     let gameClicado = document.getElementById(`game-${id}`);
     let imagem = gameClicado.querySelector('.dashboard__item__img');
@@ -9,6 +11,8 @@ function alterarStatus(id) {
     if (estaAlugado) {
         let confirmação = confirm("Você confirma a devolução do jogo?");
         if (!confirmação) return;
+    } else {
+        contabilizarAlugados++
     }
 
     imagem.classList.toggle('dashboard__item__img--rented');
@@ -20,7 +24,8 @@ function alterarStatus(id) {
         botao.textContent = 'Alugar';
     }
 
-    
+    console.log("Total de jogos alugados: " + contabilizarAlugados);
+
 }
 
 
