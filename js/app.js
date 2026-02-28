@@ -4,13 +4,23 @@ function alterarStatus(id) {
     let nomeJogo = gameClicado.querySelector('.dashboard__item__name');
     let botao = gameClicado.querySelector('.dashboard__item__button');
 
+    let estaAlugado = imagem.classList.contains('dashboard__item__img--rented');
+
+    if (estaAlugado) {
+        let confirmação = confirm("Você confirma a devolução do jogo?");
+        if (!confirmação) return;
+    }
+
     imagem.classList.toggle('dashboard__item__img--rented');
     botao.classList.toggle('dashboard__item__button--return');
-if (imagem.classList.contains('dashboard__item__img--rented')) {
-    botao.textContent = 'Devolver';
-} else {
-    botao.textContent = 'Alugar';
+
+    if (imagem.classList.contains('dashboard__item__img--rented')) {
+        botao.textContent = 'Devolver';
+    } else {
+        botao.textContent = 'Alugar';
+    }
+
+    
 }
 
-} 
 
